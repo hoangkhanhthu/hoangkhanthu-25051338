@@ -805,11 +805,11 @@ function SkillsRadar() {
 
   return (
     <div className="w-full">
-      <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto" role="img" aria-label="Sơ đồ mạng nhện kỹ năng số">
+      <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto text-primary" role="img" aria-label="Sơ đồ mạng nhện kỹ năng số">
         <defs>
           <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
           </radialGradient>
         </defs>
 
