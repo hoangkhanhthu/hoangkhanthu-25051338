@@ -58,6 +58,17 @@ import bai5Img6 from "@/assets/bai5/img6.png.asset.json";
 import bai5Report from "@/assets/bai5/report.docx.asset.json";
 import bai6Img1 from "@/assets/bai6/img1.png.asset.json";
 import bai6Report from "@/assets/bai6/report.docx.asset.json";
+import bai2Img1 from "@/assets/bai2/img01.png.asset.json";
+import bai2Img2 from "@/assets/bai2/img02.png.asset.json";
+import bai2Img3 from "@/assets/bai2/img03.png.asset.json";
+import bai2Img4 from "@/assets/bai2/img04.png.asset.json";
+import bai2Img5 from "@/assets/bai2/img05.png.asset.json";
+import bai2Img6 from "@/assets/bai2/img06.png.asset.json";
+import bai2Img7 from "@/assets/bai2/img07.png.asset.json";
+import bai2Img8 from "@/assets/bai2/img08.png.asset.json";
+import bai2Img9 from "@/assets/bai2/img09.png.asset.json";
+import bai2Img10 from "@/assets/bai2/img10.png.asset.json";
+import bai2Report from "@/assets/bai2/report.zip.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
@@ -69,6 +80,11 @@ const BAI3_IMAGES = [
   bai3Img11, bai3Img12, bai3Img13, bai3Img14, bai3Img15, bai3Img16, bai3Img17, bai3Img18, bai3Img19,
 ].map((a) => a.url);
 
+const BAI2_IMAGES = [
+  bai2Img1, bai2Img2, bai2Img3, bai2Img4, bai2Img5,
+  bai2Img6, bai2Img7, bai2Img8, bai2Img9, bai2Img10,
+].map((a) => a.url);
+
 const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) => a.url);
 
 const BAI5_IMAGES = [bai5Img1, bai5Img2, bai5Img3, bai5Img4, bai5Img5, bai5Img6].map((a) => a.url);
@@ -76,6 +92,7 @@ const BAI6_IMAGES = [bai6Img1].map((a) => a.url);
 
 const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
   p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
+  p2: { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
   p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
   p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
   p5: { url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" },
@@ -330,14 +347,7 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
     "Kiểm tra file khôi phục thành công",
     "Tổng kết các thao tác quản lý tệp tin",
   ],
-  p2: [
-    "Truy vấn nâng cao trên Google Scholar",
-    "Kết quả lọc theo filetype:pdf",
-    "Bài báo Hoàng Mạnh Hùng (2019)",
-    "Nghiên cứu UEL – Vũ Thị Kim Hạnh (2021)",
-    "Tạp chí Kinh tế & Ngân hàng châu Á (2022)",
-    "Bảng đánh giá 4 nguồn học thuật",
-  ],
+  p2: Array.from({ length: 10 }, (_, i) => `Minh chứng nguồn học thuật Logistics – Ảnh ${String(i + 1).padStart(2, "0")}`),
   p3: Array.from({ length: 19 }, (_, i) => `Minh chứng Prompt Engineering – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
   p4: Array.from({ length: 5 }, (_, i) => `Minh chứng hợp tác trực tuyến – Ảnh ${String(i + 1).padStart(2, "0")}`),
@@ -895,7 +905,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {EVIDENCE_ITEMS[project.id].map((caption, i) => {
-                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : project.id === "p6" ? BAI6_IMAGES[i] : undefined;
+                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p2" ? BAI2_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : project.id === "p6" ? BAI6_IMAGES[i] : undefined;
                     return (
                     <figure
                       key={i}
