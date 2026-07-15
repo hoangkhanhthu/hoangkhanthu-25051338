@@ -235,6 +235,62 @@ const AI_PRINCIPLES = [
   "Chịu trách nhiệm cuối cùng với sản phẩm học tập của bản thân.",
 ];
 
+const EVIDENCE_ITEMS: Record<string, string[]> = {
+  p1: [
+    "Thanh Taskbar và tìm kiếm trên Windows",
+    "Cửa sổ File Explorer – PC này",
+    "Tạo file GhiChu.txt",
+    "Đổi tên file thành GhiChuQuanTrong.txt",
+    "Tạo thư mục TaiLieu",
+    "Menu chuột phải – Sao chép tệp tin",
+    "Di chuyển file vào thư mục TaiLieu",
+    "Xóa file & khôi phục từ Recycle Bin",
+  ],
+  p2: [
+    "Truy vấn nâng cao trên Google Scholar",
+    "Kết quả lọc theo filetype:pdf",
+    "Bài báo Hoàng Mạnh Hùng (2019)",
+    "Nghiên cứu UEL – Vũ Thị Kim Hạnh (2021)",
+    "Tạp chí Kinh tế & Ngân hàng châu Á (2022)",
+    "Bảng đánh giá 4 nguồn học thuật",
+  ],
+  p3: [
+    "Prompt cơ bản – đầu ra ChatGPT",
+    "Prompt cải tiến – 3 phần rõ ràng",
+    "Prompt nâng cao – Role + Chain-of-thought",
+    "Bảng chấm điểm 5⭐ prompt nâng cao",
+    "Đối chiếu kết quả giữa ChatGPT và Gemini",
+    "Tóm tắt văn bản kinh tế vĩ mô của Fed",
+  ],
+  p4: [
+    "Bảng Trello 3 cột phân công nhóm",
+    "Google Docs bật Suggesting Mode",
+    "Lịch họp Google Meet của nhóm",
+    "Thư mục Google Drive dự án",
+    "Infographic Canva – bản cuối cùng",
+    "Bảng đánh giá 5 công cụ cộng tác",
+  ],
+  p5: [
+    "Prompt ChatGPT cho kịch bản 7 slide",
+    "Ảnh DALL·E – kho hàng thông minh AGV",
+    "Hậu kỳ ảnh trong Canva",
+    "Bố cục slide đề xuất bởi Canva AI",
+    "Slide kiến trúc hệ thống IoT + AI",
+    "PDF bản thuyết trình 7 slide hoàn thiện",
+  ],
+  p6: [
+    "Chính sách AI của VNU 2025–2026",
+    "So sánh chính sách 3 trường ĐH",
+    "Danh sách 6 prompt đã sử dụng",
+    "Ghi chú vai trò AI ở từng khâu",
+    "Bộ 7 nguyên tắc AI cá nhân in dán",
+    "Bảng tự đánh giá theo nguyên tắc",
+  ],
+};
+// sentinel to preserve original array closing
+const __END_AI_PRINCIPLES__ = true;
+
+
 const SKILLS = [
   { name: "Quản lý tệp và dữ liệu số", level: 90, desc: "Tổ chức, đặt tên và sao lưu dữ liệu học tập khoa học.", apply: "Áp dụng trong mọi môn học và dự án cá nhân." },
   { name: "Tìm kiếm thông tin học thuật", level: 88, desc: "Dùng toán tử nâng cao trên Google Scholar, cổng học liệu.", apply: "Viết tiểu luận, làm nghiên cứu khoa học." },
