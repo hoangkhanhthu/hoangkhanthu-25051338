@@ -17,7 +17,6 @@ const NAV = [
   { id: "about", label: "Giới thiệu" },
   { id: "overview", label: "Hành trình" },
   { id: "projects", label: "Dự án" },
-  { id: "evidence", label: "Minh chứng" },
   { id: "skills", label: "Kỹ năng" },
   { id: "conclusion", label: "Tổng kết" },
 ];
@@ -245,14 +244,6 @@ const SKILLS = [
   { name: "Tự đánh giá và cải thiện", level: 88, desc: "Nhìn lại quy trình, rút bài học và điều chỉnh.", apply: "Phát triển năng lực học tập suốt đời." },
 ];
 
-const EVIDENCE = [
-  { icon: FolderTree, title: "Cấu trúc thư mục học tập", desc: "Sơ đồ phân cấp và quy tắc đặt tên tệp." },
-  { icon: Search, title: "Kết quả tìm kiếm học thuật", desc: "Ảnh chụp toán tử nâng cao và bảng đánh giá nguồn." },
-  { icon: Sparkles, title: "So sánh Prompt AI", desc: "Prompt ban đầu và prompt cải tiến, kết quả đối chiếu." },
-  { icon: Users, title: "Bảng quản lý công việc nhóm", desc: "Kanban trên Trello & bảng phân công Google Sheets." },
-  { icon: Video, title: "Sản phẩm AI tạo sinh", desc: "Video ngắn / infographic hoàn thiện phục vụ học tập." },
-  { icon: ShieldCheck, title: "Bộ nguyên tắc AI cá nhân", desc: "7 nguyên tắc và phân tích rủi ro đạo đức." },
-];
 
 /* -------------------- Component -------------------- */
 
@@ -354,7 +345,7 @@ function PortfolioPage() {
               {[
                 { id: "about", label: "Giới thiệu" },
                 { id: "projects", label: "Dự án học tập" },
-                { id: "evidence", label: "Minh chứng" },
+                
                 { id: "conclusion", label: "Tổng kết" },
               ].map((b) => (
                 <button
@@ -480,36 +471,6 @@ function PortfolioPage() {
 
       </Section>
 
-
-      {/* EVIDENCE GALLERY */}
-      <Section id="evidence" eyebrow="Minh chứng" title="Thư viện minh chứng học tập" desc="Bộ sưu tập trực quan các minh chứng cho từng bài tập. Bạn có thể thay các placeholder bằng ảnh thật.">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EVIDENCE.map((e, i) => {
-            const Ic = e.icon;
-            return (
-              <div key={i} className="reveal group bg-white rounded-3xl border border-border overflow-hidden shadow-soft hover:-translate-y-1 hover:shadow-pink transition-all">
-                <div className="aspect-video bg-gradient-hero relative overflow-hidden">
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="w-16 h-16 rounded-2xl bg-white/80 backdrop-blur grid place-items-center shadow-soft">
-                      <Ic className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <div className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/90 text-xs text-muted-foreground border border-border">
-                    Thay bằng minh chứng thật
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="font-semibold text-blue-deep">{e.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">{e.desc}</p>
-                  <button className="mt-4 inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all">
-                    Xem chi tiết <LinkIcon className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Section>
 
       {/* SKILLS */}
       <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Tổng hợp năng lực số hình thành qua 6 nhiệm vụ, kèm mức độ thành thạo và ứng dụng thực tế.">
