@@ -786,8 +786,11 @@ function InfoCard({ icon: Icon, title, children, color }: { icon: any; title: st
 function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[number]; open?: boolean; onToggle?: () => void }) {
   void open; void onToggle;
   const Icon = project.icon;
+  const [showAllEvidence, setShowAllEvidence] = useState(false);
+  const MAX_PREVIEW = 6;
   return (
     <div className="reveal bg-white rounded-3xl border border-border overflow-hidden shadow-soft">
+
       <div className="w-full text-left p-6 md:p-7 flex gap-5 items-start">
         <div className="w-14 h-14 rounded-2xl bg-gradient-primary grid place-items-center shrink-0 shadow-pink">
           <Icon className="w-7 h-7 text-primary-foreground" />
