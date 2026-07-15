@@ -804,7 +804,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
 
       {(
 
-        <div className="px-5 md:px-6 pb-5 grid lg:grid-cols-2 gap-4 border-t border-border pt-4">
+        <div className="px-5 md:px-6 pb-5 lg:columns-2 lg:gap-4 space-y-4 lg:space-y-0 border-t border-border pt-4 [&>*]:break-inside-avoid [&>*]:mb-4">
           <DetailBlock icon={Target} title="Mục tiêu">{project.goal}</DetailBlock>
           <DetailBlock icon={CheckCircle2} title="Quá trình thực hiện">
             <ol className="list-decimal pl-5 space-y-1.5">{project.process.map((p, i) => <li key={i}>{p}</li>)}</ol>
