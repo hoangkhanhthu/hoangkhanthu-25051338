@@ -888,32 +888,62 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                   </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {EVIDENCE_ITEMS[project.id].map((caption, i) => (
+                  {EVIDENCE_ITEMS[project.id].map((caption, i) => {
+                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : undefined;
+                    return (
                     <figure
                       key={i}
                       className="group bg-white rounded-2xl border border-border overflow-hidden shadow-soft hover:shadow-pink transition-shadow"
                     >
                       <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
-                        <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:24px_24px] text-primary/20" />
-                        <div className="relative flex flex-col items-center gap-2 text-primary/70">
-                          <ImageIcon className="w-10 h-10" />
-                          <span className="text-[11px] uppercase tracking-widest font-semibold">
-                            Ảnh {String(i + 1).padStart(2, "0")}
-                          </span>
-                        </div>
+                        {imgUrl ? (
+                          <img
+                            src={imgUrl}
+                            alt={caption}
+                            loading="lazy"
+                            className="w-full h-full object-contain bg-white p-2 group-hover:scale-[1.03] transition-transform"
+                          />
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:24px_24px] text-primary/20" />
+                            <div className="relative flex flex-col items-center gap-2 text-primary/70">
+                              <ImageIcon className="w-10 h-10" />
+                              <span className="text-[11px] uppercase tracking-widest font-semibold">
+                                Ảnh {String(i + 1).padStart(2, "0")}
+                              </span>
+                            </div>
+                          </>
+                        )}
                         <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur text-[10px] font-semibold text-blue-deep border border-border">
-                          {project.tag}
+                          {project.tag} · Ảnh {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>
                       <figcaption className="p-3 text-sm text-blue-deep font-medium leading-snug">
                         {caption}
                       </figcaption>
                     </figure>
-                  ))}
+                    );
+                  })}
                 </div>
-                <p className="mt-4 text-xs italic text-muted-foreground text-center">
-                  Khung ảnh minh chứng – thay bằng ảnh chụp thực tế của bạn khi có.
-                </p>
+                {EVIDENCE_FILES[project.id] && (
+                  <a
+                    href={EVIDENCE_FILES[project.id].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 flex items-center gap-3 rounded-xl border border-pink-200 bg-white hover:bg-pink-50/50 px-4 py-3 transition-colors group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-pink-soft grid place-items-center shrink-0">
+                      <FileText className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-semibold text-blue-deep truncate">
+                        {EVIDENCE_FILES[project.id].name}
+                      </div>
+                      <div className="text-xs text-muted-foreground">Nhấn để mở / tải xuống tệp minh chứng gốc</div>
+                    </div>
+                    <LinkIcon className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
+                  </a>
+                )}
               </div>
             </div>
           )}
