@@ -783,11 +783,12 @@ function InfoCard({ icon: Icon, title, children, color }: { icon: any; title: st
   );
 }
 
-function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[number]; open: boolean; onToggle: () => void }) {
+function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[number]; open?: boolean; onToggle?: () => void }) {
+  void open; void onToggle;
   const Icon = project.icon;
   return (
     <div className="reveal bg-white rounded-3xl border border-border overflow-hidden shadow-soft">
-      <button onClick={onToggle} className="w-full text-left p-6 md:p-7 flex gap-5 items-start hover:bg-muted/40 transition-colors">
+      <div className="w-full text-left p-6 md:p-7 flex gap-5 items-start">
         <div className="w-14 h-14 rounded-2xl bg-gradient-primary grid place-items-center shrink-0 shadow-pink">
           <Icon className="w-7 h-7 text-primary-foreground" />
         </div>
@@ -807,10 +808,10 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
             <span className="text-xs text-muted-foreground">{project.progress}% hoàn thành</span>
           </div>
         </div>
-        <ChevronDown className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
-      </button>
+      </div>
 
-      {open && (
+      {(
+
         <div className="px-6 md:px-7 pb-7 grid lg:grid-cols-2 gap-6 border-t border-border">
           <DetailBlock icon={Target} title="Mục tiêu">{project.goal}</DetailBlock>
           <DetailBlock icon={CheckCircle2} title="Quá trình thực hiện">
