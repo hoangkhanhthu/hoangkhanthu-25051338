@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "./App.tsx";
+@source "./main.tsx";
 
 @import "tw-animate-css";
 
