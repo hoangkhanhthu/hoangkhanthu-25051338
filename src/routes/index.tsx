@@ -785,3 +785,117 @@ function ConclusionBlock({ icon: Icon, title, items, color }: { icon: any; title
     </div>
   );
 }
+
+function SkillsRadar() {
+  const size = 560;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = 200;
+  const n = SKILLS.length;
+  const rings = [20, 40, 60, 80, 100];
+
+  const angleFor = (i: number) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
+  const point = (i: number, pct: number) => {
+    const a = angleFor(i);
+    const rr = (r * pct) / 100;
+    return [cx + rr * Math.cos(a), cy + rr * Math.sin(a)] as const;
+  };
+
+  const polygonPoints = SKILLS.map((s, i) => point(i, s.level).join(",")).join(" ");
+
+  return (
+    <div className="w-full">
+      <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto" role="img" aria-label="Sơ đồ mạng nhện kỹ năng số">
+        <defs>
+          <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.15" />
+          </radialGradient>
+        </defs>
+
+        {/* Rings */}
+        {rings.map((pct) => {
+          const pts = Array.from({ length: n }, (_, i) => point(i, pct).join(",")).join(" ");
+          return (
+            <polygon
+              key={pct}
+              points={pts}
+              fill="none"
+              stroke="currentColor"
+              strokeOpacity={pct === 100 ? 0.35 : 0.15}
+              strokeWidth={pct === 100 ? 1.2 : 1}
+              className="text-muted-foreground"
+            />
+          );
+        })}
+
+        {/* Axes + labels */}
+        {SKILLS.map((s, i) => {
+          const [x, y] = point(i, 100);
+          const [lx, ly] = point(i, 118);
+          const a = angleFor(i);
+          const cos = Math.cos(a);
+          const anchor = cos > 0.3 ? "start" : cos < -0.3 ? "end" : "middle";
+          return (
+            <g key={i}>
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke="currentColor" strokeOpacity={0.15} className="text-muted-foreground" />
+              <text
+                x={lx}
+                y={ly}
+                textAnchor={anchor}
+                dominantBaseline="middle"
+                className="fill-blue-deep"
+                style={{ fontSize: 12, fontWeight: 600 }}
+              >
+                <tspan x={lx} dy="0">{`${i + 1}. ${s.name.split(" ").slice(0, 3).join(" ")}`}</tspan>
+                <tspan x={lx} dy="14" className="fill-muted-foreground" style={{ fontSize: 11, fontWeight: 400 }}>
+                  {s.name.split(" ").slice(3).join(" ") || "\u00A0"}
+                </tspan>
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Ring % labels */}
+        {rings.map((pct) => (
+          <text
+            key={pct}
+            x={cx + 4}
+            y={cy - (r * pct) / 100}
+            className="fill-muted-foreground"
+            style={{ fontSize: 9 }}
+          >
+            {pct}
+          </text>
+        ))}
+
+        {/* Data polygon */}
+        <polygon
+          points={polygonPoints}
+          fill="url(#radarFill)"
+          stroke="hsl(var(--primary))"
+          strokeWidth={2}
+        />
+
+        {/* Data points */}
+        {SKILLS.map((s, i) => {
+          const [x, y] = point(i, s.level);
+          return (
+            <g key={i}>
+              <circle cx={x} cy={y} r={5} className="fill-pink-strong" stroke="white" strokeWidth={2} />
+              <text
+                x={x}
+                y={y - 10}
+                textAnchor="middle"
+                className="fill-blue-deep"
+                style={{ fontSize: 10, fontWeight: 700 }}
+              >
+                {s.level}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
