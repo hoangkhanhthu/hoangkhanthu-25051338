@@ -765,13 +765,10 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
           <DetailBlock icon={Wand2} title="Công cụ sử dụng">
             <div className="flex flex-wrap gap-2">{project.tools.map((t) => <span key={t} className="px-3 py-1 rounded-full bg-pink-soft text-blue-deep text-xs font-medium">{t}</span>)}</div>
           </DetailBlock>
-          <DetailBlock icon={ImageIcon} title="Sản phẩm / Minh chứng">
-            <div className="p-4 rounded-xl bg-gradient-hero border border-dashed border-border text-center text-sm text-muted-foreground">
-              <FileText className="w-6 h-6 mx-auto mb-2 text-primary" />
-              {project.evidence}
-              <div className="mt-1 text-xs italic">(Thay bằng minh chứng thật)</div>
-            </div>
+          <DetailBlock icon={FileText} title="Mô tả minh chứng">
+            <p className="text-sm text-muted-foreground leading-relaxed">{project.evidence}</p>
           </DetailBlock>
+
           <DetailBlock icon={BrainCircuit} title="Phân tích kết quả">
             <ul className="list-disc pl-5 space-y-1.5">{project.analysis.map((a, i) => <li key={i}>{a}</li>)}</ul>
           </DetailBlock>
