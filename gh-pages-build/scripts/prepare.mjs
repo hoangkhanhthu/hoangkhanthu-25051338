@@ -64,7 +64,11 @@ async function processAssets() {
 
   console.log(`\n📦 Tìm thấy ${pointers.length} file .asset.json cần xử lý.\n`);
 
-  const CDN_BASE = process.env.LOVABLE_ASSETS_BASE || "https://cdn.lovable.dev";
+  // URL ổn định của project trên Lovable (không đổi kể cả khi đổi tên project).
+  // Có thể override bằng env LOVABLE_ASSETS_BASE nếu cần.
+  const projectId = "fa856b17-afce-43eb-9995-26520a494d5b";
+  const CDN_BASE =
+    process.env.LOVABLE_ASSETS_BASE || `https://project--${projectId}-dev.lovable.app`;
 
   let downloaded = 0;
   let skipped = 0;
