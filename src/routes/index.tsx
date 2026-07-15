@@ -91,13 +91,16 @@ const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) =
 const BAI5_IMAGES = [bai5Img1, bai5Img2, bai5Img3, bai5Img4, bai5Img5, bai5Img6].map((a) => a.url);
 const BAI6_IMAGES = [bai6Img1].map((a) => a.url);
 
-const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
-  p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
-  p2: { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
-  p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
-  p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
-  p5: { url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" },
-  p6: { url: bai6Report.url, name: "Bài 6 – Báo cáo sử dụng AI có trách nhiệm.docx" },
+const EVIDENCE_FILES: Record<string, { url: string; name: string }[]> = {
+  p1: [{ url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" }],
+  p2: [
+    { url: bai2ReportPdf.url, name: "Bài 2 – Báo cáo tìm kiếm nguồn học thuật.pdf" },
+    { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
+  ],
+  p3: [{ url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" }],
+  p4: [{ url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" }],
+  p5: [{ url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" }],
+  p6: [{ url: bai6Report.url, name: "Bài 6 – Báo cáo sử dụng AI có trách nhiệm.docx" }],
 };
 
 
