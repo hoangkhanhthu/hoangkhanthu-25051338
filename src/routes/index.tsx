@@ -314,14 +314,8 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
     "Tạp chí Kinh tế & Ngân hàng châu Á (2022)",
     "Bảng đánh giá 4 nguồn học thuật",
   ],
-  p3: [
-    "Prompt cơ bản – đầu ra ChatGPT",
-    "Prompt cải tiến – 3 phần rõ ràng",
-    "Prompt nâng cao – Role + Chain-of-thought",
-    "Bảng chấm điểm 5⭐ prompt nâng cao",
-    "Đối chiếu kết quả giữa ChatGPT và Gemini",
-    "Tóm tắt văn bản kinh tế vĩ mô của Fed",
-  ],
+  p3: Array.from({ length: 19 }, (_, i) => `Minh chứng Prompt Engineering – Ảnh ${String(i + 1).padStart(2, "0")}`),
+
   p4: [
     "Bảng Trello 3 cột phân công nhóm",
     "Google Docs bật Suggesting Mode",
