@@ -535,15 +535,6 @@ function PortfolioPage() {
           </div>
 
           <div className="md:col-span-2 grid gap-6">
-            <div className="bg-gradient-to-br from-pink-50 via-white to-blue-50 rounded-3xl p-6 border border-border shadow-soft">
-              <div className="flex items-center gap-2 mb-3">
-                <Flower2 className="w-5 h-5 text-pink-500" />
-                <h3 className="text-lg font-semibold text-blue-deep">Đôi nét về mình</h3>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Xin chào! Mình là <span className="font-semibold text-blue-deep">Hoàng Khánh Thư</span> – một cô gái năng động, dịu dàng và hoạt bát, luôn giữ tinh thần tích cực trong học tập cũng như cuộc sống. Mình yêu màu hồng pastel, thích những điều nhỏ xinh và tin rằng mỗi ngày trôi qua đều là cơ hội để trở thành phiên bản tốt hơn của chính mình. Bên cạnh việc học ngành Kinh tế Quốc tế, mình đặc biệt hứng thú với công nghệ số, AI tạo sinh và cách biến kiến thức khô khan thành những sản phẩm số đẹp mắt, có giá trị.
-              </p>
-            </div>
 
             <InfoCard icon={Target} title="Mục tiêu học tập" color="blue">
               <ul className="space-y-1.5 list-disc pl-5">
