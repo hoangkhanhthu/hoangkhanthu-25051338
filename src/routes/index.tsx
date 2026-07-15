@@ -732,7 +732,6 @@ function PortfolioPage() {
           </div>
         </div>
         <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-          © 2026 Hoàng Khánh Thư · Portfolio học tập cá nhân
         </div>
       </footer>
 
