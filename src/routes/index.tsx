@@ -474,23 +474,34 @@ function PortfolioPage() {
 
 
       {/* SKILLS */}
-      <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Tổng hợp năng lực số hình thành qua 6 nhiệm vụ, kèm mức độ thành thạo và ứng dụng thực tế.">
-        <div className="grid md:grid-cols-2 gap-5">
-          {SKILLS.map((s, i) => (
-            <div key={i} className="reveal bg-white rounded-2xl p-6 border border-border shadow-soft hover:shadow-pink transition-all">
-              <div className="flex items-center justify-between">
-                <h4 className="font-semibold text-blue-deep">{s.name}</h4>
-                <span className="text-sm font-semibold text-primary">{s.level}%</span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-              <div className="mt-3 h-2 rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-gradient-primary rounded-full transition-all duration-700" style={{ width: `${s.level}%` }} />
-              </div>
-              <p className="mt-3 text-xs text-muted-foreground"><b className="text-foreground">Ứng dụng:</b> {s.apply}</p>
+      <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Trực quan hóa 8 năng lực số dưới dạng sơ đồ mạng nhện (radar chart), giúp so sánh mức độ thành thạo giữa các nhóm kỹ năng một cách khoa học.">
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          <div className="lg:col-span-3 reveal bg-white rounded-3xl border border-border shadow-soft p-6 md:p-8">
+            <SkillsRadar />
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-sm bg-primary/30 border border-primary" /> Vùng năng lực đạt được</span>
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-pink-strong" /> Điểm mốc kỹ năng</span>
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-[2px] bg-muted-foreground/40" /> Vòng chuẩn 20 · 40 · 60 · 80 · 100%</span>
             </div>
-          ))}
+          </div>
+          <ol className="lg:col-span-2 space-y-3 reveal">
+            {SKILLS.map((s, i) => (
+              <li key={i} className="bg-white rounded-2xl p-4 border border-border shadow-soft hover:shadow-pink transition-all">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 rounded-full bg-gradient-primary text-primary-foreground text-xs font-bold grid place-items-center shrink-0">{i + 1}</span>
+                    <h4 className="font-semibold text-blue-deep text-sm">{s.name}</h4>
+                  </div>
+                  <span className="text-sm font-bold text-primary tabular-nums">{s.level}%</span>
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">{s.desc}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><b className="text-foreground">Ứng dụng:</b> {s.apply}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </Section>
+
 
       {/* CONCLUSION */}
       <Section id="conclusion" eyebrow="Tổng kết" title="Nhìn lại hành trình & định hướng phía trước" desc="Tự đánh giá quá trình học tập, những khó khăn đã vượt qua và định hướng áp dụng kỹ năng số trong tương lai.">
@@ -771,6 +782,120 @@ function ConclusionBlock({ icon: Icon, title, items, color }: { icon: any; title
           <li key={i} className="flex gap-2"><span className="text-primary mt-1">•</span><span>{it}</span></li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function SkillsRadar() {
+  const size = 560;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = 200;
+  const n = SKILLS.length;
+  const rings = [20, 40, 60, 80, 100];
+
+  const angleFor = (i: number) => -Math.PI / 2 + (i * 2 * Math.PI) / n;
+  const point = (i: number, pct: number) => {
+    const a = angleFor(i);
+    const rr = (r * pct) / 100;
+    return [cx + rr * Math.cos(a), cy + rr * Math.sin(a)] as const;
+  };
+
+  const polygonPoints = SKILLS.map((s, i) => point(i, s.level).join(",")).join(" ");
+
+  return (
+    <div className="w-full">
+      <svg viewBox={`0 0 ${size} ${size}`} className="w-full h-auto text-primary" role="img" aria-label="Sơ đồ mạng nhện kỹ năng số">
+        <defs>
+          <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="currentColor" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="currentColor" stopOpacity="0.15" />
+          </radialGradient>
+        </defs>
+
+        {/* Rings */}
+        {rings.map((pct) => {
+          const pts = Array.from({ length: n }, (_, i) => point(i, pct).join(",")).join(" ");
+          return (
+            <polygon
+              key={pct}
+              points={pts}
+              fill="none"
+              stroke="currentColor"
+              strokeOpacity={pct === 100 ? 0.35 : 0.15}
+              strokeWidth={pct === 100 ? 1.2 : 1}
+              className="text-muted-foreground"
+            />
+          );
+        })}
+
+        {/* Axes + labels */}
+        {SKILLS.map((s, i) => {
+          const [x, y] = point(i, 100);
+          const [lx, ly] = point(i, 118);
+          const a = angleFor(i);
+          const cos = Math.cos(a);
+          const anchor = cos > 0.3 ? "start" : cos < -0.3 ? "end" : "middle";
+          return (
+            <g key={i}>
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke="currentColor" strokeOpacity={0.15} className="text-muted-foreground" />
+              <text
+                x={lx}
+                y={ly}
+                textAnchor={anchor}
+                dominantBaseline="middle"
+                className="fill-blue-deep"
+                style={{ fontSize: 12, fontWeight: 600 }}
+              >
+                <tspan x={lx} dy="0">{`${i + 1}. ${s.name.split(" ").slice(0, 3).join(" ")}`}</tspan>
+                <tspan x={lx} dy="14" className="fill-muted-foreground" style={{ fontSize: 11, fontWeight: 400 }}>
+                  {s.name.split(" ").slice(3).join(" ") || "\u00A0"}
+                </tspan>
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Ring % labels */}
+        {rings.map((pct) => (
+          <text
+            key={pct}
+            x={cx + 4}
+            y={cy - (r * pct) / 100}
+            className="fill-muted-foreground"
+            style={{ fontSize: 9 }}
+          >
+            {pct}
+          </text>
+        ))}
+
+        {/* Data polygon */}
+        <polygon
+          points={polygonPoints}
+          fill="url(#radarFill)"
+          stroke="currentColor"
+          strokeWidth={2}
+        />
+
+        {/* Data points */}
+        {SKILLS.map((s, i) => {
+          const [x, y] = point(i, s.level);
+          return (
+            <g key={i}>
+              <circle cx={x} cy={y} r={5} className="fill-pink-strong" stroke="white" strokeWidth={2} />
+              <text
+                x={x}
+                y={y - 10}
+                textAnchor="middle"
+                className="fill-blue-deep"
+                style={{ fontSize: 10, fontWeight: 700 }}
+              >
+                {s.level}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
     </div>
   );
 }
