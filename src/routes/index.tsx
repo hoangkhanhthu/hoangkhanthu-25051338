@@ -946,23 +946,28 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                   })}
                 </div>
                 {EVIDENCE_FILES[project.id] && (
-                  <a
-                    href={EVIDENCE_FILES[project.id].url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 flex items-center gap-3 rounded-xl border border-pink-200 bg-white hover:bg-pink-50/50 px-4 py-3 transition-colors group"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-pink-soft grid place-items-center shrink-0">
-                      <FileText className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-blue-deep truncate">
-                        {EVIDENCE_FILES[project.id].name}
-                      </div>
-                      <div className="text-xs text-muted-foreground">Nhấn để mở / tải xuống tệp minh chứng gốc</div>
-                    </div>
-                    <LinkIcon className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
-                  </a>
+                  <div className="mt-5 space-y-2">
+                    {EVIDENCE_FILES[project.id].map((file) => (
+                      <a
+                        key={file.url}
+                        href={file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-xl border border-pink-200 bg-white hover:bg-pink-50/50 px-4 py-3 transition-colors group"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-pink-soft grid place-items-center shrink-0">
+                          <FileText className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-blue-deep truncate">
+                            {file.name}
+                          </div>
+                          <div className="text-xs text-muted-foreground">Nhấn để mở / tải xuống tệp minh chứng gốc</div>
+                        </div>
+                        <LinkIcon className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
