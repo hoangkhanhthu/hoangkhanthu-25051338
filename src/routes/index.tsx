@@ -915,7 +915,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {EVIDENCE_ITEMS[project.id].map((caption, i) => {
-                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : undefined;
+                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : project.id === "p6" ? BAI6_IMAGES[i] : undefined;
                     return (
                     <figure
                       key={i}
