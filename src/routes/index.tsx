@@ -43,6 +43,12 @@ import bai3Img17 from "@/assets/bai3/img17.png.asset.json";
 import bai3Img18 from "@/assets/bai3/img18.png.asset.json";
 import bai3Img19 from "@/assets/bai3/img19.png.asset.json";
 import bai3Report from "@/assets/bai3/report.docx.asset.json";
+import bai4Img1 from "@/assets/bai4/img1.png.asset.json";
+import bai4Img2 from "@/assets/bai4/img2.png.asset.json";
+import bai4Img3 from "@/assets/bai4/img3.png.asset.json";
+import bai4Img4 from "@/assets/bai4/img4.png.asset.json";
+import bai4Img5 from "@/assets/bai4/img5.png.asset.json";
+import bai4Report from "@/assets/bai4/report.pdf.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
@@ -54,10 +60,14 @@ const BAI3_IMAGES = [
   bai3Img11, bai3Img12, bai3Img13, bai3Img14, bai3Img15, bai3Img16, bai3Img17, bai3Img18, bai3Img19,
 ].map((a) => a.url);
 
+const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) => a.url);
+
 const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
   p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
   p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
+  p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
 };
+
 
 
 
