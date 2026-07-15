@@ -840,7 +840,51 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
               </DetailBlock>
             </div>
           )}
+
+          {EVIDENCE_ITEMS[project.id] && (
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl border border-pink-200/70 bg-gradient-to-br from-pink-50/60 via-white to-blue-50/60 p-5 md:p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-9 h-9 rounded-xl bg-pink-soft grid place-items-center">
+                    <ImageIcon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h4 className="text-base md:text-lg font-semibold text-blue-deep">Minh chứng</h4>
+                  <span className="ml-auto text-xs text-muted-foreground">
+                    {EVIDENCE_ITEMS[project.id].length} ảnh minh chứng
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {EVIDENCE_ITEMS[project.id].map((caption, i) => (
+                    <figure
+                      key={i}
+                      className="group bg-white rounded-2xl border border-border overflow-hidden shadow-soft hover:shadow-pink transition-shadow"
+                    >
+                      <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
+                        <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:24px_24px] text-primary/20" />
+                        <div className="relative flex flex-col items-center gap-2 text-primary/70">
+                          <ImageIcon className="w-10 h-10" />
+                          <span className="text-[11px] uppercase tracking-widest font-semibold">
+                            Ảnh {String(i + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur text-[10px] font-semibold text-blue-deep border border-border">
+                          {project.tag}
+                        </span>
+                      </div>
+                      <figcaption className="p-3 text-sm text-blue-deep font-medium leading-snug">
+                        {caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs italic text-muted-foreground text-center">
+                  Khung ảnh minh chứng – thay bằng ảnh chụp thực tế của bạn khi có.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
+
       )}
 
     </div>
