@@ -905,7 +905,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                     {EVIDENCE_ITEMS[project.id].length} ảnh minh chứng
                   </span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                   {(() => {
                     const items = EVIDENCE_ITEMS[project.id];
                     const total = items.length;
@@ -921,7 +921,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                               key={i}
                               className="group bg-white rounded-2xl border border-border overflow-hidden shadow-soft hover:shadow-pink transition-shadow"
                             >
-                              <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
+                              <div className="relative aspect-square bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
                                 {imgUrl ? (
                                   <img
                                     src={imgUrl}
@@ -954,7 +954,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                           <button
                             type="button"
                             onClick={() => setShowAllEvidence(true)}
-                            className="group relative aspect-[4/3] rounded-2xl border-2 border-dashed border-pink-300 bg-gradient-to-br from-pink-50 via-white to-blue-50 hover:from-pink-100 hover:to-blue-100 transition-colors flex flex-col items-center justify-center gap-2 text-blue-deep"
+                            className="group relative aspect-square rounded-2xl border-2 border-dashed border-pink-300 bg-gradient-to-br from-pink-50 via-white to-blue-50 hover:from-pink-100 hover:to-blue-100 transition-colors flex flex-col items-center justify-center gap-2 text-blue-deep"
                           >
                             <span className="text-3xl md:text-4xl font-bold text-primary">+{hiddenCount}</span>
                             <span className="text-sm font-semibold">ảnh còn lại</span>
