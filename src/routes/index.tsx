@@ -731,8 +731,6 @@ function PortfolioPage() {
             </a>
           </div>
         </div>
-        <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        </div>
       </footer>
 
       {/* Back to top */}
