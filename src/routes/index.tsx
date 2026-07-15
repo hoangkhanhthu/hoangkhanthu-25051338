@@ -481,36 +481,6 @@ function PortfolioPage() {
       </Section>
 
 
-      {/* EVIDENCE GALLERY */}
-      <Section id="evidence" eyebrow="Minh chứng" title="Thư viện minh chứng học tập" desc="Bộ sưu tập trực quan các minh chứng cho từng bài tập. Bạn có thể thay các placeholder bằng ảnh thật.">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {EVIDENCE.map((e, i) => {
-            const Ic = e.icon;
-            return (
-              <div key={i} className="reveal group bg-white rounded-3xl border border-border overflow-hidden shadow-soft hover:-translate-y-1 hover:shadow-pink transition-all">
-                <div className="aspect-video bg-gradient-hero relative overflow-hidden">
-                  <div className="absolute inset-0 grid place-items-center">
-                    <div className="w-16 h-16 rounded-2xl bg-white/80 backdrop-blur grid place-items-center shadow-soft">
-                      <Ic className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <div className="absolute top-3 right-3 px-2 py-1 rounded-full bg-white/90 text-xs text-muted-foreground border border-border">
-                    Thay bằng minh chứng thật
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="font-semibold text-blue-deep">{e.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">{e.desc}</p>
-                  <button className="mt-4 inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all">
-                    Xem chi tiết <LinkIcon className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Section>
-
       {/* SKILLS */}
       <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Tổng hợp năng lực số hình thành qua 6 nhiệm vụ, kèm mức độ thành thạo và ứng dụng thực tế.">
         <div className="grid md:grid-cols-2 gap-5">
