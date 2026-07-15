@@ -244,14 +244,6 @@ const SKILLS = [
   { name: "Tự đánh giá và cải thiện", level: 88, desc: "Nhìn lại quy trình, rút bài học và điều chỉnh.", apply: "Phát triển năng lực học tập suốt đời." },
 ];
 
-const EVIDENCE = [
-  { icon: FolderTree, title: "Cấu trúc thư mục học tập", desc: "Sơ đồ phân cấp và quy tắc đặt tên tệp." },
-  { icon: Search, title: "Kết quả tìm kiếm học thuật", desc: "Ảnh chụp toán tử nâng cao và bảng đánh giá nguồn." },
-  { icon: Sparkles, title: "So sánh Prompt AI", desc: "Prompt ban đầu và prompt cải tiến, kết quả đối chiếu." },
-  { icon: Users, title: "Bảng quản lý công việc nhóm", desc: "Kanban trên Trello & bảng phân công Google Sheets." },
-  { icon: Video, title: "Sản phẩm AI tạo sinh", desc: "Video ngắn / infographic hoàn thiện phục vụ học tập." },
-  { icon: ShieldCheck, title: "Bộ nguyên tắc AI cá nhân", desc: "7 nguyên tắc và phân tích rủi ro đạo đức." },
-];
 
 /* -------------------- Component -------------------- */
 
