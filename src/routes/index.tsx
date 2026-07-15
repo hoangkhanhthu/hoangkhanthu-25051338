@@ -474,23 +474,34 @@ function PortfolioPage() {
 
 
       {/* SKILLS */}
-      <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Tổng hợp năng lực số hình thành qua 6 nhiệm vụ, kèm mức độ thành thạo và ứng dụng thực tế.">
-        <div className="grid md:grid-cols-2 gap-5">
-          {SKILLS.map((s, i) => (
-            <div key={i} className="reveal bg-white rounded-2xl p-6 border border-border shadow-soft hover:shadow-pink transition-all">
-              <div className="flex items-center justify-between">
-                <h4 className="font-semibold text-blue-deep">{s.name}</h4>
-                <span className="text-sm font-semibold text-primary">{s.level}%</span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-              <div className="mt-3 h-2 rounded-full bg-muted overflow-hidden">
-                <div className="h-full bg-gradient-primary rounded-full transition-all duration-700" style={{ width: `${s.level}%` }} />
-              </div>
-              <p className="mt-3 text-xs text-muted-foreground"><b className="text-foreground">Ứng dụng:</b> {s.apply}</p>
+      <Section id="skills" eyebrow="Kỹ năng" title="Bảng tổng hợp kỹ năng đạt được" desc="Trực quan hóa 8 năng lực số dưới dạng sơ đồ mạng nhện (radar chart), giúp so sánh mức độ thành thạo giữa các nhóm kỹ năng một cách khoa học.">
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          <div className="lg:col-span-3 reveal bg-white rounded-3xl border border-border shadow-soft p-6 md:p-8">
+            <SkillsRadar />
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-sm bg-primary/30 border border-primary" /> Vùng năng lực đạt được</span>
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-pink-strong" /> Điểm mốc kỹ năng</span>
+              <span className="inline-flex items-center gap-2"><span className="w-3 h-[2px] bg-muted-foreground/40" /> Vòng chuẩn 20 · 40 · 60 · 80 · 100%</span>
             </div>
-          ))}
+          </div>
+          <ol className="lg:col-span-2 space-y-3 reveal">
+            {SKILLS.map((s, i) => (
+              <li key={i} className="bg-white rounded-2xl p-4 border border-border shadow-soft hover:shadow-pink transition-all">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-7 h-7 rounded-full bg-gradient-primary text-primary-foreground text-xs font-bold grid place-items-center shrink-0">{i + 1}</span>
+                    <h4 className="font-semibold text-blue-deep text-sm">{s.name}</h4>
+                  </div>
+                  <span className="text-sm font-bold text-primary tabular-nums">{s.level}%</span>
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">{s.desc}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><b className="text-foreground">Ứng dụng:</b> {s.apply}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </Section>
+
 
       {/* CONCLUSION */}
       <Section id="conclusion" eyebrow="Tổng kết" title="Nhìn lại hành trình & định hướng phía trước" desc="Tự đánh giá quá trình học tập, những khó khăn đã vượt qua và định hướng áp dụng kỹ năng số trong tương lai.">
