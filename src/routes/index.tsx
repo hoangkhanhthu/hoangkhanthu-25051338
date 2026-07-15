@@ -393,8 +393,8 @@ function PortfolioPage() {
       <Section id="about" eyebrow="Giới thiệu" title="About Me" desc="Card cá nhân giới thiệu ngắn gọn về mục tiêu học tập và định hướng phát triển năng lực số.">
         <div className="grid md:grid-cols-3 gap-6 reveal">
           <div className="md:col-span-1 bg-white rounded-3xl p-6 border border-border shadow-soft">
-            <div className="aspect-square rounded-2xl bg-gradient-hero grid place-items-center mb-5">
-              <div className="w-28 h-28 rounded-full bg-gradient-primary grid place-items-center text-primary-foreground text-3xl font-bold shadow-pink">HT</div>
+            <div className="aspect-square rounded-2xl overflow-hidden mb-5 shadow-pink">
+              <img src={studentPhoto.url} alt="Hoàng Khánh Thư" className="w-full h-full object-cover" />
             </div>
             <div className="text-center">
               <h3 className="text-xl font-semibold text-blue-deep">Hoàng Khánh Thư</h3>
