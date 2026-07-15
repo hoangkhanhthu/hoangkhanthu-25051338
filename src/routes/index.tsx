@@ -786,8 +786,11 @@ function InfoCard({ icon: Icon, title, children, color }: { icon: any; title: st
 function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[number]; open?: boolean; onToggle?: () => void }) {
   void open; void onToggle;
   const Icon = project.icon;
+  const [showAllEvidence, setShowAllEvidence] = useState(false);
+  const MAX_PREVIEW = 6;
   return (
     <div className="reveal bg-white rounded-3xl border border-border overflow-hidden shadow-soft">
+
       <div className="w-full text-left p-6 md:p-7 flex gap-5 items-start">
         <div className="w-14 h-14 rounded-2xl bg-gradient-primary grid place-items-center shrink-0 shadow-pink">
           <Icon className="w-7 h-7 text-primary-foreground" />
@@ -909,46 +912,78 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                   </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {EVIDENCE_ITEMS[project.id].map((caption, i) => {
-                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p2" ? BAI2_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : project.id === "p6" ? BAI6_IMAGES[i] : undefined;
+                  {(() => {
+                    const items = EVIDENCE_ITEMS[project.id];
+                    const total = items.length;
+                    const showMoreTile = !showAllEvidence && total > MAX_PREVIEW;
+                    const visibleCount = showMoreTile ? MAX_PREVIEW - 1 : total;
+                    const hiddenCount = total - visibleCount;
                     return (
-                    <figure
-                      key={i}
-                      className="group bg-white rounded-2xl border border-border overflow-hidden shadow-soft hover:shadow-pink transition-shadow"
-                    >
-                      <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
-                        {imgUrl ? (
-                          <img
-                            src={imgUrl}
-                            alt={caption}
-                            loading="lazy"
-                            className="w-full h-full object-contain bg-white p-2 group-hover:scale-[1.03] transition-transform"
-                          />
-                        ) : (
-                          <>
-                            <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:24px_24px] text-primary/20" />
-                            <div className="relative flex flex-col items-center gap-2 text-primary/70">
-                              <ImageIcon className="w-10 h-10" />
-                              <span className="text-[11px] uppercase tracking-widest font-semibold">
-                                Ảnh {String(i + 1).padStart(2, "0")}
-                              </span>
-                            </div>
-                          </>
+                      <>
+                        {items.slice(0, visibleCount).map((caption, i) => {
+                          const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p2" ? BAI2_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : project.id === "p6" ? BAI6_IMAGES[i] : undefined;
+                          return (
+                            <figure
+                              key={i}
+                              className="group bg-white rounded-2xl border border-border overflow-hidden shadow-soft hover:shadow-pink transition-shadow"
+                            >
+                              <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-soft/40 via-white to-pink-soft/40 grid place-items-center overflow-hidden">
+                                {imgUrl ? (
+                                  <img
+                                    src={imgUrl}
+                                    alt={caption}
+                                    loading="lazy"
+                                    className="w-full h-full object-contain bg-white p-2 group-hover:scale-[1.03] transition-transform"
+                                  />
+                                ) : (
+                                  <>
+                                    <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(currentColor_1px,transparent_1px),linear-gradient(90deg,currentColor_1px,transparent_1px)] [background-size:24px_24px] text-primary/20" />
+                                    <div className="relative flex flex-col items-center gap-2 text-primary/70">
+                                      <ImageIcon className="w-10 h-10" />
+                                      <span className="text-[11px] uppercase tracking-widest font-semibold">
+                                        Ảnh {String(i + 1).padStart(2, "0")}
+                                      </span>
+                                    </div>
+                                  </>
+                                )}
+                                <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur text-[10px] font-semibold text-blue-deep border border-border">
+                                  {project.tag} · Ảnh {String(i + 1).padStart(2, "0")}
+                                </span>
+                              </div>
+                              <figcaption className="p-3 text-sm text-blue-deep font-medium leading-snug">
+                                {caption}
+                              </figcaption>
+                            </figure>
+                          );
+                        })}
+                        {showMoreTile && (
+                          <button
+                            type="button"
+                            onClick={() => setShowAllEvidence(true)}
+                            className="group relative aspect-[4/3] rounded-2xl border-2 border-dashed border-pink-300 bg-gradient-to-br from-pink-50 via-white to-blue-50 hover:from-pink-100 hover:to-blue-100 transition-colors flex flex-col items-center justify-center gap-2 text-blue-deep"
+                          >
+                            <span className="text-3xl md:text-4xl font-bold text-primary">+{hiddenCount}</span>
+                            <span className="text-sm font-semibold">ảnh còn lại</span>
+                            <span className="text-xs text-muted-foreground">Nhấn để xem tất cả</span>
+                          </button>
                         )}
-                        <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur text-[10px] font-semibold text-blue-deep border border-border">
-                          {project.tag} · Ảnh {String(i + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <figcaption className="p-3 text-sm text-blue-deep font-medium leading-snug">
-                        {caption}
-                      </figcaption>
-                    </figure>
+                        {showAllEvidence && total > MAX_PREVIEW && (
+                          <button
+                            type="button"
+                            onClick={() => setShowAllEvidence(false)}
+                            className="col-span-full mt-1 text-sm text-primary hover:underline font-medium self-start"
+                          >
+                            Thu gọn ↑
+                          </button>
+                        )}
+                      </>
                     );
-                  })}
+                  })()}
                 </div>
                 {EVIDENCE_FILES[project.id] && (
                   <div className="mt-5 space-y-2">
                     {EVIDENCE_FILES[project.id].map((file) => (
+
                       <a
                         key={file.url}
                         href={file.url}
