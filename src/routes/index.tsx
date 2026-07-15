@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import {
   FolderTree, Search, Sparkles, Users, Wand2, ShieldCheck, ArrowUp, GraduationCap,
   Mail, Calendar, BookOpen, Target, Lightbulb, CheckCircle2, ChevronDown, Award,
-  Palette, BrainCircuit, FileText, Image as ImageIcon, Video, LinkIcon,
+  Palette, BrainCircuit, FileText, Image as ImageIcon, Video, LinkIcon, Quote, Heart, Flower2,
 } from "lucide-react";
+
 import studentPhoto from "@/assets/student.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
