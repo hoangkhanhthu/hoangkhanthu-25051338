@@ -873,7 +873,7 @@ function SkillsRadar() {
         <polygon
           points={polygonPoints}
           fill="url(#radarFill)"
-          stroke="hsl(var(--primary))"
+          stroke="currentColor"
           strokeWidth={2}
         />
 
