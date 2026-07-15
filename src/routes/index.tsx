@@ -326,14 +326,8 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
   ],
   p3: Array.from({ length: 19 }, (_, i) => `Minh chứng Prompt Engineering – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
-  p4: [
-    "Bảng Trello 3 cột phân công nhóm",
-    "Google Docs bật Suggesting Mode",
-    "Lịch họp Google Meet của nhóm",
-    "Thư mục Google Drive dự án",
-    "Infographic Canva – bản cuối cùng",
-    "Bảng đánh giá 5 công cụ cộng tác",
-  ],
+  p4: Array.from({ length: 5 }, (_, i) => `Minh chứng hợp tác trực tuyến – Ảnh ${String(i + 1).padStart(2, "0")}`),
+
   p5: [
     "Prompt ChatGPT cho kịch bản 7 slide",
     "Ảnh DALL·E – kho hàng thông minh AGV",
