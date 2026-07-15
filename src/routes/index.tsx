@@ -567,17 +567,6 @@ function PortfolioPage() {
               </ul>
             </InfoCard>
 
-            <div className="relative bg-gradient-to-r from-primary/10 via-pink-100/60 to-primary/10 rounded-3xl p-6 border border-primary/20 shadow-pink overflow-hidden">
-              <Quote className="absolute top-4 right-4 w-16 h-16 text-primary/15" />
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold text-blue-deep">Câu nói tâm đắc</h3>
-              </div>
-              <blockquote className="text-base md:text-lg italic text-blue-deep leading-relaxed font-medium">
-                "Hãy dịu dàng với chính mình, nhưng đừng bao giờ ngừng cố gắng. Mỗi bước nhỏ hôm nay đều đang vẽ nên phiên bản rực rỡ của mình ngày mai."
-              </blockquote>
-              <p className="text-sm text-muted-foreground mt-3">— Kim chỉ nam của Khánh Thư 🌸</p>
-            </div>
           </div>
 
 
