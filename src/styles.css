@@ -2,6 +2,12 @@
 @source "../src";
 @import "tw-animate-css";
 
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 /*
