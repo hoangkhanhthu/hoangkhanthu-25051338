@@ -699,8 +699,74 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
           <DetailBlock icon={Lightbulb} title="Bài học rút ra">
             <ul className="list-disc pl-5 space-y-1.5">{project.lesson.map((l, i) => <li key={i}>{l}</li>)}</ul>
           </DetailBlock>
+          {project.id === "p2" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={Search} title="Bảng đánh giá nguồn">
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-blue-soft/40">
+                      <tr className="text-left text-blue-deep">
+                        <th className="py-2 px-3">Nguồn</th><th className="py-2 px-3">Tác giả</th><th className="py-2 px-3">Năm</th><th className="py-2 px-3">Tin cậy</th><th className="py-2 px-3">Lý do</th><th className="py-2 px-3">Hạn chế</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {SEARCH_SOURCES.map((s, i) => (
+                        <tr key={i} className="border-t border-border/60">
+                          <td className="py-2 px-3 font-medium text-foreground">{s.src}</td>
+                          <td className="py-2 px-3">{s.author}</td>
+                          <td className="py-2 px-3">{s.year}</td>
+                          <td className="py-2 px-3"><span className="px-2 py-0.5 rounded-full text-xs bg-blue-soft text-blue-deep">{s.trust}</span></td>
+                          <td className="py-2 px-3">{s.reason}</td>
+                          <td className="py-2 px-3">{s.limit}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </DetailBlock>
+            </div>
+          )}
+          {project.id === "p3" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={Sparkles} title="So sánh Prompt ban đầu và Prompt cải tiến">
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-pink-soft/40">
+                      <tr className="text-left text-blue-deep">
+                        <th className="py-2 px-3">Tiêu chí</th><th className="py-2 px-3">Prompt ban đầu</th><th className="py-2 px-3">Prompt cải tiến</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {PROMPT_COMPARE.map((r, i) => (
+                        <tr key={i} className="border-t border-border/60">
+                          <td className="py-2 px-3 font-medium text-foreground">{r.crit}</td>
+                          <td className="py-2 px-3">{r.before}</td>
+                          <td className="py-2 px-3 text-foreground">{r.after}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </DetailBlock>
+            </div>
+          )}
+          {project.id === "p6" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={ShieldCheck} title="Bộ 7 nguyên tắc sử dụng AI cá nhân">
+                <ol className="grid sm:grid-cols-2 gap-3">
+                  {AI_PRINCIPLES.map((p, i) => (
+                    <li key={i} className="flex gap-3 items-start p-3 rounded-xl bg-blue-soft/30 border border-border">
+                      <span className="mt-0.5 w-6 h-6 rounded-full bg-gradient-primary text-primary-foreground text-xs font-bold grid place-items-center shrink-0">{i + 1}</span>
+                      <span className="text-sm text-foreground">{p}</span>
+                    </li>
+                  ))}
+                </ol>
+              </DetailBlock>
+            </div>
+          )}
         </div>
       )}
+
     </div>
   );
 }
