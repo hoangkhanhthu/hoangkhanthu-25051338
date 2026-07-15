@@ -145,8 +145,12 @@ async function buildApp() {
 }
 
 async function copyStyles() {
-  await fs.copyFile(SRC_STYLES, OUT_STYLES);
-  console.log(`🎨 Đã copy styles.css.`);
+  // Copy styles.css và bỏ `source(none)` để Tailwind auto-scan App.tsx
+  let css = await fs.readFile(SRC_STYLES, "utf8");
+  css = css.replace(/@import\s+"tailwindcss"\s+source\(none\);?/, '@import "tailwindcss";');
+  css = css.replace(/^\s*@source\s+"[^"]+";?\s*$/m, "");
+  await fs.writeFile(OUT_STYLES, css);
+  console.log(`🎨 Đã copy styles.css (đã bật auto-scan).`);
 }
 
 async function main() {
