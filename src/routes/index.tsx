@@ -17,7 +17,6 @@ const NAV = [
   { id: "about", label: "Giới thiệu" },
   { id: "overview", label: "Hành trình" },
   { id: "projects", label: "Dự án" },
-  { id: "evidence", label: "Minh chứng" },
   { id: "skills", label: "Kỹ năng" },
   { id: "conclusion", label: "Tổng kết" },
 ];
