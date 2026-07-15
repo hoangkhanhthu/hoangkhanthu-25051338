@@ -263,14 +263,21 @@ const AI_PRINCIPLES = [
 
 const EVIDENCE_ITEMS: Record<string, string[]> = {
   p1: [
-    "Thanh Taskbar và tìm kiếm trên Windows",
+    "Thanh Taskbar & thanh tìm kiếm Windows",
     "Cửa sổ File Explorer – PC này",
-    "Tạo file GhiChu.txt",
+    "Tạo file văn bản GhiChu.txt trên Desktop",
+    "Mở file GhiChu.txt bằng Notepad",
     "Đổi tên file thành GhiChuQuanTrong.txt",
-    "Tạo thư mục TaiLieu",
-    "Menu chuột phải – Sao chép tệp tin",
-    "Di chuyển file vào thư mục TaiLieu",
-    "Xóa file & khôi phục từ Recycle Bin",
+    "Tạo thư mục mới TaiLieu",
+    "Menu chuột phải – lệnh Copy tệp tin",
+    "Dán (Paste) file vào thư mục TaiLieu",
+    "Kết quả: file nằm trong thư mục TaiLieu",
+    "Thao tác cắt (Cut) – di chuyển file",
+    "Xóa file bằng phím Delete",
+    "Mở Recycle Bin – thùng rác Windows",
+    "Khôi phục (Restore) file đã xóa",
+    "Kiểm tra file khôi phục thành công",
+    "Tổng kết các thao tác quản lý tệp tin",
   ],
   p2: [
     "Truy vấn nâng cao trên Google Scholar",
