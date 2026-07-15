@@ -77,9 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+
       { title: "Portfolio Kỹ thuật số – Hoàng Khánh Thư" },
       { name: "description", content: "Portfolio kỹ thuật số cá nhân của Hoàng Khánh Thư – hành trình học tập môn Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo." },
       { name: "author", content: "Hoàng Khánh Thư" },
