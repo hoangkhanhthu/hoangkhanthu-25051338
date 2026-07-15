@@ -69,6 +69,7 @@ import bai2Img8 from "@/assets/bai2/img08.png.asset.json";
 import bai2Img9 from "@/assets/bai2/img09.png.asset.json";
 import bai2Img10 from "@/assets/bai2/img10.png.asset.json";
 import bai2Report from "@/assets/bai2/report.zip.asset.json";
+import bai2ReportPdf from "@/assets/bai2/report.pdf.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
@@ -90,13 +91,16 @@ const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) =
 const BAI5_IMAGES = [bai5Img1, bai5Img2, bai5Img3, bai5Img4, bai5Img5, bai5Img6].map((a) => a.url);
 const BAI6_IMAGES = [bai6Img1].map((a) => a.url);
 
-const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
-  p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
-  p2: { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
-  p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
-  p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
-  p5: { url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" },
-  p6: { url: bai6Report.url, name: "Bài 6 – Báo cáo sử dụng AI có trách nhiệm.docx" },
+const EVIDENCE_FILES: Record<string, { url: string; name: string }[]> = {
+  p1: [{ url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" }],
+  p2: [
+    { url: bai2ReportPdf.url, name: "Bài 2 – Báo cáo tìm kiếm nguồn học thuật.pdf" },
+    { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
+  ],
+  p3: [{ url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" }],
+  p4: [{ url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" }],
+  p5: [{ url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" }],
+  p6: [{ url: bai6Report.url, name: "Bài 6 – Báo cáo sử dụng AI có trách nhiệm.docx" }],
 };
 
 
@@ -942,23 +946,28 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                   })}
                 </div>
                 {EVIDENCE_FILES[project.id] && (
-                  <a
-                    href={EVIDENCE_FILES[project.id].url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 flex items-center gap-3 rounded-xl border border-pink-200 bg-white hover:bg-pink-50/50 px-4 py-3 transition-colors group"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-pink-soft grid place-items-center shrink-0">
-                      <FileText className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-blue-deep truncate">
-                        {EVIDENCE_FILES[project.id].name}
-                      </div>
-                      <div className="text-xs text-muted-foreground">Nhấn để mở / tải xuống tệp minh chứng gốc</div>
-                    </div>
-                    <LinkIcon className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
-                  </a>
+                  <div className="mt-5 space-y-2">
+                    {EVIDENCE_FILES[project.id].map((file) => (
+                      <a
+                        key={file.url}
+                        href={file.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-xl border border-pink-200 bg-white hover:bg-pink-50/50 px-4 py-3 transition-colors group"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-pink-soft grid place-items-center shrink-0">
+                          <FileText className="w-5 h-5 text-primary" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-semibold text-blue-deep truncate">
+                            {file.name}
+                          </div>
+                          <div className="text-xs text-muted-foreground">Nhấn để mở / tải xuống tệp minh chứng gốc</div>
+                        </div>
+                        <LinkIcon className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-transform" />
+                      </a>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
