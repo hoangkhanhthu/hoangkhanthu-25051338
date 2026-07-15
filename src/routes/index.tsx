@@ -360,8 +360,6 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
 
   p6: ["Minh chứng sử dụng AI có trách nhiệm – Ảnh 01"],
 };
-const __END_AI_PRINCIPLES__ = true;
-void __END_AI_PRINCIPLES__;
 
 
 
@@ -429,7 +427,7 @@ function PortfolioPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <button onClick={() => scrollTo("hero")} className="flex items-center gap-2 group">
             <span className="w-9 h-9 rounded-xl bg-gradient-primary grid place-items-center text-primary-foreground font-bold shadow-soft">HT</span>
-            <span className="font-display font-semibold text-blue-deep hidden sm:block">Portfolio{"\u00a0"}<br /></span>
+            <span className="font-display font-semibold text-blue-deep hidden sm:block">Portfolio</span>
           </button>
           <nav className="hidden md:flex items-center gap-1">
             {NAV.map((n) => (
@@ -477,7 +475,6 @@ function PortfolioPage() {
               {[
                 { id: "about", label: "Giới thiệu" },
                 { id: "projects", label: "Dự án học tập" },
-                
                 { id: "conclusion", label: "Tổng kết" },
               ].map((b) => (
                 <button
@@ -522,7 +519,7 @@ function PortfolioPage() {
       </section>
 
       {/* ABOUT */}
-      <Section id="about" eyebrow="Giới thiệu" title="About Me" desc="Card cá nhân giới thiệu ngắn gọn về mục tiêu học tập và định hướng phát triển năng lực số.">
+      <Section id="about" eyebrow="Giới thiệu" title="About Me" desc="Đôi nét về sinh viên thực hiện Portfolio: thông tin cá nhân, mục tiêu học tập và định hướng phát triển năng lực số.">
         <div className="grid md:grid-cols-3 gap-6 reveal">
           <div className="md:col-span-1 bg-white rounded-3xl p-6 border border-border shadow-soft">
             <div className="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-5 shadow-pink ring-4 ring-pink-soft ring-offset-2 ring-offset-white">
@@ -730,8 +727,6 @@ function PortfolioPage() {
               <Mail className="w-4 h-4" /> 25051338@vnu.edu.vn
             </a>
           </div>
-        </div>
-        <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
         </div>
       </footer>
 
