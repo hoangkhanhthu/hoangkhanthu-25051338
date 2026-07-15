@@ -344,14 +344,7 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
 
   p5: Array.from({ length: 6 }, (_, i) => `Minh chứng AI tạo sinh – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
-  p6: [
-    "Chính sách AI của VNU 2025–2026",
-    "So sánh chính sách 3 trường ĐH",
-    "Danh sách 6 prompt đã sử dụng",
-    "Ghi chú vai trò AI ở từng khâu",
-    "Bộ 7 nguyên tắc AI cá nhân in dán",
-    "Bảng tự đánh giá theo nguyên tắc",
-  ],
+  p6: ["Minh chứng sử dụng AI có trách nhiệm – Ảnh 01"],
 };
 const __END_AI_PRINCIPLES__ = true;
 void __END_AI_PRINCIPLES__;
