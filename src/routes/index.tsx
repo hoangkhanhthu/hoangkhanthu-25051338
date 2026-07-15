@@ -49,6 +49,13 @@ import bai4Img3 from "@/assets/bai4/img3.png.asset.json";
 import bai4Img4 from "@/assets/bai4/img4.png.asset.json";
 import bai4Img5 from "@/assets/bai4/img5.png.asset.json";
 import bai4Report from "@/assets/bai4/report.pdf.asset.json";
+import bai5Img1 from "@/assets/bai5/img1.png.asset.json";
+import bai5Img2 from "@/assets/bai5/img2.png.asset.json";
+import bai5Img3 from "@/assets/bai5/img3.png.asset.json";
+import bai5Img4 from "@/assets/bai5/img4.png.asset.json";
+import bai5Img5 from "@/assets/bai5/img5.png.asset.json";
+import bai5Img6 from "@/assets/bai5/img6.png.asset.json";
+import bai5Report from "@/assets/bai5/report.docx.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
