@@ -23,15 +23,42 @@ import bai1Img13 from "@/assets/bai1/img13.png.asset.json";
 import bai1Img14 from "@/assets/bai1/img14.png.asset.json";
 import bai1Img15 from "@/assets/bai1/img15.png.asset.json";
 import bai1Report from "@/assets/bai1/report.docx.asset.json";
+import bai3Img1 from "@/assets/bai3/img1.png.asset.json";
+import bai3Img2 from "@/assets/bai3/img2.png.asset.json";
+import bai3Img3 from "@/assets/bai3/img3.png.asset.json";
+import bai3Img4 from "@/assets/bai3/img4.png.asset.json";
+import bai3Img5 from "@/assets/bai3/img5.png.asset.json";
+import bai3Img6 from "@/assets/bai3/img6.png.asset.json";
+import bai3Img7 from "@/assets/bai3/img7.png.asset.json";
+import bai3Img8 from "@/assets/bai3/img8.png.asset.json";
+import bai3Img9 from "@/assets/bai3/img9.png.asset.json";
+import bai3Img10 from "@/assets/bai3/img10.png.asset.json";
+import bai3Img11 from "@/assets/bai3/img11.png.asset.json";
+import bai3Img12 from "@/assets/bai3/img12.png.asset.json";
+import bai3Img13 from "@/assets/bai3/img13.png.asset.json";
+import bai3Img14 from "@/assets/bai3/img14.png.asset.json";
+import bai3Img15 from "@/assets/bai3/img15.png.asset.json";
+import bai3Img16 from "@/assets/bai3/img16.png.asset.json";
+import bai3Img17 from "@/assets/bai3/img17.png.asset.json";
+import bai3Img18 from "@/assets/bai3/img18.png.asset.json";
+import bai3Img19 from "@/assets/bai3/img19.png.asset.json";
+import bai3Report from "@/assets/bai3/report.docx.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
   bai1Img9, bai1Img10, bai1Img11, bai1Img12, bai1Img13, bai1Img14, bai1Img15,
 ].map((a) => a.url);
 
+const BAI3_IMAGES = [
+  bai3Img1, bai3Img2, bai3Img3, bai3Img4, bai3Img5, bai3Img6, bai3Img7, bai3Img8, bai3Img9, bai3Img10,
+  bai3Img11, bai3Img12, bai3Img13, bai3Img14, bai3Img15, bai3Img16, bai3Img17, bai3Img18, bai3Img19,
+].map((a) => a.url);
+
 const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
   p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
+  p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
 };
+
 
 
 export const Route = createFileRoute("/")({
@@ -287,14 +314,8 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
     "Tạp chí Kinh tế & Ngân hàng châu Á (2022)",
     "Bảng đánh giá 4 nguồn học thuật",
   ],
-  p3: [
-    "Prompt cơ bản – đầu ra ChatGPT",
-    "Prompt cải tiến – 3 phần rõ ràng",
-    "Prompt nâng cao – Role + Chain-of-thought",
-    "Bảng chấm điểm 5⭐ prompt nâng cao",
-    "Đối chiếu kết quả giữa ChatGPT và Gemini",
-    "Tóm tắt văn bản kinh tế vĩ mô của Fed",
-  ],
+  p3: Array.from({ length: 19 }, (_, i) => `Minh chứng Prompt Engineering – Ảnh ${String(i + 1).padStart(2, "0")}`),
+
   p4: [
     "Bảng Trello 3 cột phân công nhóm",
     "Google Docs bật Suggesting Mode",
@@ -889,7 +910,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {EVIDENCE_ITEMS[project.id].map((caption, i) => {
-                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : undefined;
+                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : undefined;
                     return (
                     <figure
                       key={i}
