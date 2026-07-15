@@ -360,8 +360,6 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
 
   p6: ["Minh chứng sử dụng AI có trách nhiệm – Ảnh 01"],
 };
-const __END_AI_PRINCIPLES__ = true;
-void __END_AI_PRINCIPLES__;
 
 
 
