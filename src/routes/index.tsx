@@ -5,6 +5,7 @@ import {
   Mail, Calendar, BookOpen, Target, Lightbulb, CheckCircle2, ChevronDown, Award,
   Palette, BrainCircuit, FileText, Image as ImageIcon, Video, LinkIcon,
 } from "lucide-react";
+import studentPhoto from "@/assets/student.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: PortfolioPage,
