@@ -80,6 +80,11 @@ const BAI3_IMAGES = [
   bai3Img11, bai3Img12, bai3Img13, bai3Img14, bai3Img15, bai3Img16, bai3Img17, bai3Img18, bai3Img19,
 ].map((a) => a.url);
 
+const BAI2_IMAGES = [
+  bai2Img1, bai2Img2, bai2Img3, bai2Img4, bai2Img5,
+  bai2Img6, bai2Img7, bai2Img8, bai2Img9, bai2Img10,
+].map((a) => a.url);
+
 const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) => a.url);
 
 const BAI5_IMAGES = [bai5Img1, bai5Img2, bai5Img3, bai5Img4, bai5Img5, bai5Img6].map((a) => a.url);
@@ -87,6 +92,7 @@ const BAI6_IMAGES = [bai6Img1].map((a) => a.url);
 
 const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
   p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
+  p2: { url: bai2Report.url, name: "Bài 2 – Nguồn học thuật Logistics (ZIP)" },
   p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
   p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
   p5: { url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" },
