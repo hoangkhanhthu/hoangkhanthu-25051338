@@ -287,8 +287,9 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
     "Bảng tự đánh giá theo nguyên tắc",
   ],
 };
-// sentinel to preserve original array closing
 const __END_AI_PRINCIPLES__ = true;
+void __END_AI_PRINCIPLES__;
+
 
 
 const SKILLS = [
