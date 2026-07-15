@@ -49,6 +49,13 @@ import bai4Img3 from "@/assets/bai4/img3.png.asset.json";
 import bai4Img4 from "@/assets/bai4/img4.png.asset.json";
 import bai4Img5 from "@/assets/bai4/img5.png.asset.json";
 import bai4Report from "@/assets/bai4/report.pdf.asset.json";
+import bai5Img1 from "@/assets/bai5/img1.png.asset.json";
+import bai5Img2 from "@/assets/bai5/img2.png.asset.json";
+import bai5Img3 from "@/assets/bai5/img3.png.asset.json";
+import bai5Img4 from "@/assets/bai5/img4.png.asset.json";
+import bai5Img5 from "@/assets/bai5/img5.png.asset.json";
+import bai5Img6 from "@/assets/bai5/img6.png.asset.json";
+import bai5Report from "@/assets/bai5/report.docx.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
@@ -62,10 +69,13 @@ const BAI3_IMAGES = [
 
 const BAI4_IMAGES = [bai4Img1, bai4Img2, bai4Img3, bai4Img4, bai4Img5].map((a) => a.url);
 
+const BAI5_IMAGES = [bai5Img1, bai5Img2, bai5Img3, bai5Img4, bai5Img5, bai5Img6].map((a) => a.url);
+
 const EVIDENCE_FILES: Record<string, { url: string; name: string }> = {
   p1: { url: bai1Report.url, name: "Bài 1 – Báo cáo thao tác Windows.docx" },
   p3: { url: bai3Report.url, name: "Bài 3 – Báo cáo Prompt Engineering.docx" },
   p4: { url: bai4Report.url, name: "Bài 4 – Báo cáo hợp tác trực tuyến.pdf" },
+  p5: { url: bai5Report.url, name: "Bài 5 – Báo cáo AI tạo sinh.docx" },
 };
 
 
@@ -328,14 +338,8 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
 
   p4: Array.from({ length: 5 }, (_, i) => `Minh chứng hợp tác trực tuyến – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
-  p5: [
-    "Prompt ChatGPT cho kịch bản 7 slide",
-    "Ảnh DALL·E – kho hàng thông minh AGV",
-    "Hậu kỳ ảnh trong Canva",
-    "Bố cục slide đề xuất bởi Canva AI",
-    "Slide kiến trúc hệ thống IoT + AI",
-    "PDF bản thuyết trình 7 slide hoàn thiện",
-  ],
+  p5: Array.from({ length: 6 }, (_, i) => `Minh chứng AI tạo sinh – Ảnh ${String(i + 1).padStart(2, "0")}`),
+
   p6: [
     "Chính sách AI của VNU 2025–2026",
     "So sánh chính sách 3 trường ĐH",
@@ -914,7 +918,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {EVIDENCE_ITEMS[project.id].map((caption, i) => {
-                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : undefined;
+                    const imgUrl = project.id === "p1" ? BAI1_IMAGES[i] : project.id === "p3" ? BAI3_IMAGES[i] : project.id === "p4" ? BAI4_IMAGES[i] : project.id === "p5" ? BAI5_IMAGES[i] : undefined;
                     return (
                     <figure
                       key={i}
