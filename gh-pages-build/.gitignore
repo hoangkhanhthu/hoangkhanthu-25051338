@@ -4,3 +4,4 @@ public/media
 src/App.tsx
 src/styles.css
 src/assets
+package-lock.json
