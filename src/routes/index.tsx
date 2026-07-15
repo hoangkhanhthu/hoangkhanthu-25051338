@@ -586,36 +586,31 @@ function PortfolioPage() {
 
       {/* OVERVIEW / TIMELINE */}
       <Section id="overview" eyebrow="Tổng quan dự án" title="Hành trình 6 nhiệm vụ học tập" desc="Sơ đồ hành trình từ kỹ năng nền tảng đến năng lực sử dụng AI có trách nhiệm.">
-        <div className="relative">
-          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-pink-strong to-primary/40" />
-          <div className="space-y-8">
-            {TASKS.map((t, i) => {
-              const Icon = t.icon;
-              const left = i % 2 === 0;
-              return (
-                <div key={i} className={`reveal md:grid md:grid-cols-2 md:gap-8 items-center ${left ? "" : "md:[direction:rtl]"}`}>
-                  <div className={`md:[direction:ltr] ${left ? "md:text-right md:pr-10" : "md:pl-10"}`}>
-                    <div className={`inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white border border-border text-xs uppercase tracking-widest text-primary font-semibold shadow-sm`}>
-                      Nhiệm vụ 0{i + 1}
-                    </div>
-                    <h3 className="mt-3 text-2xl font-semibold text-blue-deep">{t.title}</h3>
-                    <p className="mt-2 text-muted-foreground">{t.short}</p>
-                    <button
-                      onClick={() => { scrollTo("projects"); setOpenProject(`p${i + 1}`); }}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all"
-                    >
-                      Xem chi tiết <ChevronDown className="w-4 h-4 -rotate-90" />
-                    </button>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal">
+          {TASKS.map((t, i) => {
+            const Icon = t.icon;
+            return (
+              <button
+                key={i}
+                onClick={() => { scrollTo("projects"); setOpenProject(`p${i + 1}`); }}
+                className="group text-left relative rounded-2xl bg-white border border-border p-5 hover:shadow-pink hover:-translate-y-1 hover:border-primary/40 transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-gradient-primary grid place-items-center shadow-pink shrink-0">
+                    <Icon className="w-5 h-5 text-primary-foreground" />
                   </div>
-                  <div className="md:[direction:ltr] flex md:justify-start justify-center mt-4 md:mt-0 relative">
-                    <div className={`w-20 h-20 rounded-2xl bg-gradient-primary grid place-items-center shadow-pink z-10 ${left ? "md:-ml-10" : "md:-mr-10 md:ml-auto"}`}>
-                      <Icon className="w-9 h-9 text-primary-foreground" />
-                    </div>
+                  <div className="text-[10px] uppercase tracking-widest text-primary font-semibold">
+                    Nhiệm vụ 0{i + 1}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+                <h3 className="mt-3 text-base font-semibold text-blue-deep leading-snug">{t.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground line-clamp-3">{t.short}</p>
+                <div className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary group-hover:gap-2 transition-all">
+                  Xem chi tiết <ChevronDown className="w-3.5 h-3.5 -rotate-90" />
+                </div>
+              </button>
+            );
+          })}
         </div>
       </Section>
 
