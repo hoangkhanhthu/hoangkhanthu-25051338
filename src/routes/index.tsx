@@ -429,7 +429,7 @@ function PortfolioPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <button onClick={() => scrollTo("hero")} className="flex items-center gap-2 group">
             <span className="w-9 h-9 rounded-xl bg-gradient-primary grid place-items-center text-primary-foreground font-bold shadow-soft">HT</span>
-            <span className="font-display font-semibold text-blue-deep hidden sm:block">Portfolio · Khánh Thư</span>
+            <span className="font-display font-semibold text-blue-deep hidden sm:block">Portfolio{"\u00a0"}<br /></span>
           </button>
           <nav className="hidden md:flex items-center gap-1">
             {NAV.map((n) => (
