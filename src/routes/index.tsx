@@ -69,6 +69,7 @@ import bai2Img8 from "@/assets/bai2/img08.png.asset.json";
 import bai2Img9 from "@/assets/bai2/img09.png.asset.json";
 import bai2Img10 from "@/assets/bai2/img10.png.asset.json";
 import bai2Report from "@/assets/bai2/report.zip.asset.json";
+import bai2ReportPdf from "@/assets/bai2/report.pdf.asset.json";
 
 const BAI1_IMAGES = [
   bai1Img1, bai1Img2, bai1Img3, bai1Img4, bai1Img5, bai1Img6, bai1Img7, bai1Img8,
