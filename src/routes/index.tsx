@@ -745,7 +745,7 @@ function Section({
   id, eyebrow, title, desc, children,
 }: { id: string; eyebrow: string; title: string; desc: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="py-20 md:py-28 scroll-mt-20">
+    <section id={id} className="py-12 md:py-16 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="reveal max-w-2xl mb-8">
           <div className="text-xs font-semibold tracking-widest uppercase text-primary">{eyebrow}</div>
