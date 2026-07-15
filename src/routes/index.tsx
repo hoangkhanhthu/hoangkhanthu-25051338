@@ -223,12 +223,6 @@ const PROMPT_COMPARE = [
   { crit: "Đánh giá kết quả", before: "1⭐ – trả lời chung chung, dễ trùng bách khoa", after: "5⭐ – chuyên sâu, chuẩn học thuật, có lời giải thích logic bám thực tế" },
 ];
 
-const TEAM_TABLE = [
-  { member: "Hoàng Khánh Thư (Nhóm trưởng)", task: "Điều phối chung, tạo bảng Trello, viết báo cáo tổng hợp trên Google Docs", due: "Ngày 7", status: "Hoàn thành", note: "Chủ trì họp Google Meet, chốt bản cuối" },
-  { member: "Thành viên A", task: "Thu thập nội dung 'tính tất yếu của liên minh giai cấp' trên Google Docs", due: "Ngày 3", status: "Hoàn thành", note: "Bật Suggesting Mode, bổ sung nguồn giáo trình" },
-  { member: "Thành viên B", task: "Thiết kế infographic bằng Canva, đồng bộ tông màu", due: "Ngày 5", status: "Hoàn thành", note: "Tùy biến template để tránh trùng ý tưởng" },
-  { member: "Thành viên C", task: "Rà soát chính tả, xuất PDF, tải lên Google Drive", due: "Ngày 6", status: "Hoàn thành", note: "Dùng Comment để trao đổi thay vì sửa trực tiếp" },
-];
 
 const AI_PRINCIPLES = [
   "Không dùng AI để gian lận hoặc làm thay toàn bộ bài tập.",
@@ -484,94 +478,8 @@ function PortfolioPage() {
           ))}
         </div>
 
-        {/* Extra data cards for select projects */}
-        <div className="mt-10 grid lg:grid-cols-2 gap-6">
-          <DataCard title="Bảng đánh giá nguồn (Bài tập 2)" icon={Search}>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-blue-deep border-b border-border">
-                    <th className="py-2 pr-3">Nguồn</th><th className="py-2 pr-3">Tác giả</th><th className="py-2 pr-3">Năm</th><th className="py-2 pr-3">Tin cậy</th><th className="py-2 pr-3">Lý do</th><th className="py-2">Hạn chế</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {SEARCH_SOURCES.map((s, i) => (
-                    <tr key={i} className="border-b border-border/60">
-                      <td className="py-2 pr-3 font-medium">{s.src}</td>
-                      <td className="py-2 pr-3 text-muted-foreground">{s.author}</td>
-                      <td className="py-2 pr-3 text-muted-foreground">{s.year}</td>
-                      <td className="py-2 pr-3"><span className={`px-2 py-0.5 rounded-full text-xs ${s.trust === "Thấp" ? "bg-pink-soft text-blue-deep" : "bg-blue-soft text-blue-deep"}`}>{s.trust}</span></td>
-                      <td className="py-2 pr-3 text-muted-foreground">{s.reason}</td>
-                      <td className="py-2 text-muted-foreground">{s.limit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </DataCard>
-
-          <DataCard title="So sánh Prompt (Bài tập 3)" icon={Sparkles}>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-blue-deep border-b border-border">
-                    <th className="py-2 pr-3">Tiêu chí</th><th className="py-2 pr-3">Prompt ban đầu</th><th className="py-2">Prompt cải tiến</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {PROMPT_COMPARE.map((r, i) => (
-                    <tr key={i} className="border-b border-border/60">
-                      <td className="py-2 pr-3 font-medium">{r.crit}</td>
-                      <td className="py-2 pr-3 text-muted-foreground">{r.before}</td>
-                      <td className="py-2 text-foreground">{r.after}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </DataCard>
-
-          <DataCard title="Bảng phân công nhóm (Bài tập 4)" icon={Users}>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-blue-deep border-b border-border">
-                    <th className="py-2 pr-3">Thành viên</th><th className="py-2 pr-3">Nhiệm vụ</th><th className="py-2 pr-3">Hạn</th><th className="py-2 pr-3">Trạng thái</th><th className="py-2">Ghi chú</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {TEAM_TABLE.map((r, i) => (
-                    <tr key={i} className="border-b border-border/60">
-                      <td className="py-2 pr-3 font-medium">{r.member}</td>
-                      <td className="py-2 pr-3 text-muted-foreground">{r.task}</td>
-                      <td className="py-2 pr-3 text-muted-foreground">{r.due}</td>
-                      <td className="py-2 pr-3">
-                        <span className={`px-2 py-0.5 rounded-full text-xs ${
-                          r.status === "Hoàn thành" ? "bg-blue-soft text-blue-deep"
-                          : r.status === "Đang làm" ? "bg-pink-soft text-blue-deep"
-                          : "bg-muted text-muted-foreground"
-                        }`}>{r.status}</span>
-                      </td>
-                      <td className="py-2 text-muted-foreground">{r.note}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </DataCard>
-
-          <DataCard title="Bộ nguyên tắc sử dụng AI cá nhân (Bài tập 6)" icon={ShieldCheck}>
-            <ol className="space-y-2">
-              {AI_PRINCIPLES.map((p, i) => (
-                <li key={i} className="flex gap-3 items-start">
-                  <span className="mt-0.5 w-6 h-6 rounded-full bg-gradient-primary text-primary-foreground text-xs font-bold grid place-items-center shrink-0">{i + 1}</span>
-                  <span className="text-sm">{p}</span>
-                </li>
-              ))}
-            </ol>
-          </DataCard>
-        </div>
       </Section>
+
 
       {/* EVIDENCE GALLERY */}
       <Section id="evidence" eyebrow="Minh chứng" title="Thư viện minh chứng học tập" desc="Bộ sưu tập trực quan các minh chứng cho từng bài tập. Bạn có thể thay các placeholder bằng ảnh thật.">
@@ -791,8 +699,74 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
           <DetailBlock icon={Lightbulb} title="Bài học rút ra">
             <ul className="list-disc pl-5 space-y-1.5">{project.lesson.map((l, i) => <li key={i}>{l}</li>)}</ul>
           </DetailBlock>
+          {project.id === "p2" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={Search} title="Bảng đánh giá nguồn">
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-blue-soft/40">
+                      <tr className="text-left text-blue-deep">
+                        <th className="py-2 px-3">Nguồn</th><th className="py-2 px-3">Tác giả</th><th className="py-2 px-3">Năm</th><th className="py-2 px-3">Tin cậy</th><th className="py-2 px-3">Lý do</th><th className="py-2 px-3">Hạn chế</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {SEARCH_SOURCES.map((s, i) => (
+                        <tr key={i} className="border-t border-border/60">
+                          <td className="py-2 px-3 font-medium text-foreground">{s.src}</td>
+                          <td className="py-2 px-3">{s.author}</td>
+                          <td className="py-2 px-3">{s.year}</td>
+                          <td className="py-2 px-3"><span className="px-2 py-0.5 rounded-full text-xs bg-blue-soft text-blue-deep">{s.trust}</span></td>
+                          <td className="py-2 px-3">{s.reason}</td>
+                          <td className="py-2 px-3">{s.limit}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </DetailBlock>
+            </div>
+          )}
+          {project.id === "p3" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={Sparkles} title="So sánh Prompt ban đầu và Prompt cải tiến">
+                <div className="overflow-x-auto rounded-xl border border-border">
+                  <table className="w-full text-sm">
+                    <thead className="bg-pink-soft/40">
+                      <tr className="text-left text-blue-deep">
+                        <th className="py-2 px-3">Tiêu chí</th><th className="py-2 px-3">Prompt ban đầu</th><th className="py-2 px-3">Prompt cải tiến</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {PROMPT_COMPARE.map((r, i) => (
+                        <tr key={i} className="border-t border-border/60">
+                          <td className="py-2 px-3 font-medium text-foreground">{r.crit}</td>
+                          <td className="py-2 px-3">{r.before}</td>
+                          <td className="py-2 px-3 text-foreground">{r.after}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </DetailBlock>
+            </div>
+          )}
+          {project.id === "p6" && (
+            <div className="lg:col-span-2">
+              <DetailBlock icon={ShieldCheck} title="Bộ 7 nguyên tắc sử dụng AI cá nhân">
+                <ol className="grid sm:grid-cols-2 gap-3">
+                  {AI_PRINCIPLES.map((p, i) => (
+                    <li key={i} className="flex gap-3 items-start p-3 rounded-xl bg-blue-soft/30 border border-border">
+                      <span className="mt-0.5 w-6 h-6 rounded-full bg-gradient-primary text-primary-foreground text-xs font-bold grid place-items-center shrink-0">{i + 1}</span>
+                      <span className="text-sm text-foreground">{p}</span>
+                    </li>
+                  ))}
+                </ol>
+              </DetailBlock>
+            </div>
+          )}
         </div>
       )}
+
     </div>
   );
 }
