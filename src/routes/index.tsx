@@ -347,14 +347,7 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
     "Kiểm tra file khôi phục thành công",
     "Tổng kết các thao tác quản lý tệp tin",
   ],
-  p2: [
-    "Truy vấn nâng cao trên Google Scholar",
-    "Kết quả lọc theo filetype:pdf",
-    "Bài báo Hoàng Mạnh Hùng (2019)",
-    "Nghiên cứu UEL – Vũ Thị Kim Hạnh (2021)",
-    "Tạp chí Kinh tế & Ngân hàng châu Á (2022)",
-    "Bảng đánh giá 4 nguồn học thuật",
-  ],
+  p2: Array.from({ length: 10 }, (_, i) => `Minh chứng nguồn học thuật Logistics – Ảnh ${String(i + 1).padStart(2, "0")}`),
   p3: Array.from({ length: 19 }, (_, i) => `Minh chứng Prompt Engineering – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
   p4: Array.from({ length: 5 }, (_, i) => `Minh chứng hợp tác trực tuyến – Ảnh ${String(i + 1).padStart(2, "0")}`),
