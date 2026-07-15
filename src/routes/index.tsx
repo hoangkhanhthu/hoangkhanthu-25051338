@@ -223,12 +223,6 @@ const PROMPT_COMPARE = [
   { crit: "Đánh giá kết quả", before: "1⭐ – trả lời chung chung, dễ trùng bách khoa", after: "5⭐ – chuyên sâu, chuẩn học thuật, có lời giải thích logic bám thực tế" },
 ];
 
-const TEAM_TABLE = [
-  { member: "Hoàng Khánh Thư (Nhóm trưởng)", task: "Điều phối chung, tạo bảng Trello, viết báo cáo tổng hợp trên Google Docs", due: "Ngày 7", status: "Hoàn thành", note: "Chủ trì họp Google Meet, chốt bản cuối" },
-  { member: "Thành viên A", task: "Thu thập nội dung 'tính tất yếu của liên minh giai cấp' trên Google Docs", due: "Ngày 3", status: "Hoàn thành", note: "Bật Suggesting Mode, bổ sung nguồn giáo trình" },
-  { member: "Thành viên B", task: "Thiết kế infographic bằng Canva, đồng bộ tông màu", due: "Ngày 5", status: "Hoàn thành", note: "Tùy biến template để tránh trùng ý tưởng" },
-  { member: "Thành viên C", task: "Rà soát chính tả, xuất PDF, tải lên Google Drive", due: "Ngày 6", status: "Hoàn thành", note: "Dùng Comment để trao đổi thay vì sửa trực tiếp" },
-];
 
 const AI_PRINCIPLES = [
   "Không dùng AI để gian lận hoặc làm thay toàn bộ bài tập.",
