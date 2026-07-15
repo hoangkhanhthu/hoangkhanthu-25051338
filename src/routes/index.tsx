@@ -616,7 +616,7 @@ function PortfolioPage() {
 
       {/* PROJECTS */}
       <Section id="projects" eyebrow="Dự án" title="6 dự án học tập chi tiết" desc="Mỗi dự án được trình bày theo cấu trúc thống nhất: mục tiêu · quá trình · công cụ · minh chứng · phân tích · bài học.">
-        <div className="space-y-5">
+        <div className="space-y-4">
           {PROJECTS.map((p) => (
             <ProjectCard key={p.id} project={p} open={openProject === p.id} onToggle={() => setOpenProject(openProject === p.id ? null : p.id)} />
           ))}
@@ -745,9 +745,9 @@ function Section({
   id, eyebrow, title, desc, children,
 }: { id: string; eyebrow: string; title: string; desc: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="py-20 md:py-28 scroll-mt-20">
+    <section id={id} className="py-12 md:py-16 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="reveal max-w-2xl mb-12">
+        <div className="reveal max-w-2xl mb-8">
           <div className="text-xs font-semibold tracking-widest uppercase text-primary">{eyebrow}</div>
           <h2 className="mt-2 text-3xl md:text-4xl font-semibold text-blue-deep">{title}</h2>
           <p className="mt-3 text-muted-foreground">{desc}</p>
@@ -780,7 +780,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
   return (
     <div className="reveal bg-white rounded-3xl border border-border overflow-hidden shadow-soft">
 
-      <div className="w-full text-left p-6 md:p-7 flex gap-5 items-start">
+      <div className="w-full text-left p-5 md:p-6 flex gap-4 items-start">
         <div className="w-14 h-14 rounded-2xl bg-gradient-primary grid place-items-center shrink-0 shadow-pink">
           <Icon className="w-7 h-7 text-primary-foreground" />
         </div>
@@ -804,7 +804,7 @@ function ProjectCard({ project, open, onToggle }: { project: typeof PROJECTS[num
 
       {(
 
-        <div className="px-6 md:px-7 pb-7 grid lg:grid-cols-2 gap-6 border-t border-border">
+        <div className="px-5 md:px-6 pb-5 grid lg:grid-cols-2 gap-4 border-t border-border pt-4">
           <DetailBlock icon={Target} title="Mục tiêu">{project.goal}</DetailBlock>
           <DetailBlock icon={CheckCircle2} title="Quá trình thực hiện">
             <ol className="list-decimal pl-5 space-y-1.5">{project.process.map((p, i) => <li key={i}>{p}</li>)}</ol>
