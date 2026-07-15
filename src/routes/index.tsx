@@ -399,23 +399,41 @@ function PortfolioPage() {
             </div>
             <div className="text-center">
               <h3 className="text-xl font-semibold text-blue-deep">Hoàng Khánh Thư</h3>
-              <p className="text-sm text-muted-foreground mt-1">MSV 25051338 · Lớp KTQT 11</p>
-              <p className="text-sm text-muted-foreground">Khoa Kinh tế Quốc tế</p>
-              <p className="text-sm text-muted-foreground">Trường Đại học Kinh tế – ĐHQGHN</p>
-              <a href="mailto:25051338@vnu.edu.vn" className="mt-4 inline-flex items-center gap-2 text-sm text-primary font-medium hover:underline">
+              <p className="text-sm text-muted-foreground mt-1">MSV 25051338</p>
+              <a href="mailto:25051338@vnu.edu.vn" className="mt-3 inline-flex items-center gap-2 text-sm text-primary font-medium hover:underline">
                 <Mail className="w-4 h-4" /> 25051338@vnu.edu.vn
               </a>
+            </div>
+            <div className="mt-5 pt-5 border-t border-border space-y-2 text-sm">
+              <div className="flex items-start gap-2">
+                <GraduationCap className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                <div>
+                  <p className="font-medium text-blue-deep">Ngành Kinh tế Quốc tế</p>
+                  <p className="text-muted-foreground">Lớp KTQT 11 · Khoa Kinh tế Quốc tế</p>
+                  <p className="text-muted-foreground">Trường Đại học Kinh tế – ĐHQGHN</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="md:col-span-2 grid gap-6">
-            <InfoCard icon={GraduationCap} title="Ngành học & Lớp" color="blue">
-              Ngành Kinh tế Quốc tế, lớp KTQT 11, khoa Kinh tế Quốc tế – Trường Đại học Kinh tế, ĐHQGHN.
+            <InfoCard icon={Target} title="Mục tiêu học tập" color="blue">
+              <ul className="space-y-1.5 list-disc pl-5">
+                <li>Nắm vững nền tảng công nghệ số và ứng dụng AI có trách nhiệm trong học tập, nghiên cứu.</li>
+                <li>Rèn luyện tư duy phản biện, kỹ năng tìm kiếm – đánh giá nguồn học thuật và trình bày khoa học.</li>
+                <li>Xây dựng thói quen học tập chủ động, biến mỗi bài tập thành một sản phẩm số hoàn chỉnh.</li>
+                <li>Định hướng phát triển năng lực số phục vụ ngành Kinh tế Quốc tế trong bối cảnh chuyển đổi số.</li>
+              </ul>
             </InfoCard>
             <InfoCard icon={Palette} title="Sở thích cá nhân" color="pink">
-              Học công nghệ số, khám phá AI, sáng tạo nội dung, quản lý dữ liệu học thuật và làm việc nhóm.
+              <ul className="space-y-1.5 list-disc pl-5">
+                <li>Khám phá công cụ AI mới và ứng dụng vào việc học, sáng tạo nội dung.</li>
+                <li>Đọc sách, tìm hiểu kinh tế quốc tế, thương mại và logistics toàn cầu.</li>
+                <li>Thiết kế – trình bày trực quan (infographic, slide, portfolio số).</li>
+                <li>Làm việc nhóm, chia sẻ kiến thức và kết nối cộng đồng học tập.</li>
+              </ul>
             </InfoCard>
-            <InfoCard icon={Target} title="Mục tiêu Portfolio" color="blue">
+            <InfoCard icon={GraduationCap} title="Mục tiêu Portfolio" color="blue">
               <ul className="space-y-1.5 list-disc pl-5">
                 <li>Hệ thống hóa toàn bộ các bài tập cuối kỳ trong một sản phẩm số duy nhất.</li>
                 <li>Chứng minh năng lực sử dụng công cụ số và AI có trách nhiệm trong học tập.</li>
@@ -424,6 +442,7 @@ function PortfolioPage() {
               </ul>
             </InfoCard>
           </div>
+
         </div>
       </Section>
 
