@@ -353,7 +353,7 @@ function PortfolioPage() {
               {[
                 { id: "about", label: "Giới thiệu" },
                 { id: "projects", label: "Dự án học tập" },
-                { id: "evidence", label: "Minh chứng" },
+                
                 { id: "conclusion", label: "Tổng kết" },
               ].map((b) => (
                 <button
