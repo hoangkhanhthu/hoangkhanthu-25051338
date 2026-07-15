@@ -338,14 +338,8 @@ const EVIDENCE_ITEMS: Record<string, string[]> = {
 
   p4: Array.from({ length: 5 }, (_, i) => `Minh chứng hợp tác trực tuyến – Ảnh ${String(i + 1).padStart(2, "0")}`),
 
-  p5: [
-    "Prompt ChatGPT cho kịch bản 7 slide",
-    "Ảnh DALL·E – kho hàng thông minh AGV",
-    "Hậu kỳ ảnh trong Canva",
-    "Bố cục slide đề xuất bởi Canva AI",
-    "Slide kiến trúc hệ thống IoT + AI",
-    "PDF bản thuyết trình 7 slide hoàn thiện",
-  ],
+  p5: Array.from({ length: 6 }, (_, i) => `Minh chứng AI tạo sinh – Ảnh ${String(i + 1).padStart(2, "0")}`),
+
   p6: [
     "Chính sách AI của VNU 2025–2026",
     "So sánh chính sách 3 trường ĐH",
