@@ -145,12 +145,16 @@ async function buildApp() {
 }
 
 async function copyStyles() {
-  // Copy styles.css và bỏ `source(none)` để Tailwind auto-scan App.tsx
+  // Copy styles.css + ép Tailwind scan App.tsx (bỏ qua .gitignore)
   let css = await fs.readFile(SRC_STYLES, "utf8");
-  css = css.replace(/@import\s+"tailwindcss"\s+source\(none\);?/, '@import "tailwindcss";');
-  css = css.replace(/^\s*@source\s+"[^"]+";?\s*$/m, "");
+  css = css.replace(/@import\s+"tailwindcss"(\s+source\([^)]*\))?;?/, '@import "tailwindcss" source(none);');
+  css = css.replace(/^\s*@source\s+"[^"]+";?\s*$/gm, "");
+  css = css.replace(
+    /@import\s+"tailwindcss"[^;]*;/,
+    (m) => `${m}\n@source "./App.tsx";\n@source "./main.tsx";`,
+  );
   await fs.writeFile(OUT_STYLES, css);
-  console.log(`🎨 Đã copy styles.css (đã bật auto-scan).`);
+  console.log(`🎨 Đã copy styles.css (đã bật scan App.tsx).`);
 }
 
 async function main() {
